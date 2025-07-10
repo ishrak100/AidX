@@ -15,5 +15,9 @@
             "password": "shahriar",
             "connectionTimeout": 30
         }
+    ],
+    "cSpell.words": [
+        "rescueoperations",
+        "rescueteams"
     ]
 }

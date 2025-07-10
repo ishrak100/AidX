@@ -15,10 +15,10 @@ router.get('/api', (req, res) => {
   //const query = 'SELECT * FROM Disaster LIMIT 50'; // Fetch all disasters with limit of 50
   const query = `
   SELECT d.DisasterID, 
-         d.DisasterType, 
+         d.\`Disaster Type\` AS DisasterType, 
          CONCAT(l.City, ', ', l.State, ', ', l.Country) AS Location, 
-         d.DateOccurred, 
-         d.SeverityLevel, 
+         d.\`Date\` AS DateOccurred, 
+         d.\`Severity Level\` AS SeverityLevel, 
          d.Description
   FROM Disaster d
   JOIN Location l ON d.LocationID = l.LocationID
@@ -40,17 +40,17 @@ router.get('/api/search', (req, res) => {
 
   let query = `
   SELECT d.DisasterID, 
-         d.DisasterType, 
+         d.\`Disaster Type\` AS DisasterType, 
          CONCAT(l.City, ', ', l.State, ', ', l.Country) AS Location, 
-         d.DateOccurred, 
-         d.SeverityLevel, 
+         d.\`Date\` AS DateOccurred, 
+         d.\`Severity Level\` AS SeverityLevel, 
          d.Description
   FROM Disaster d
   JOIN Location l ON d.LocationID = l.LocationID
-  WHERE LOWER(d.DisasterType) LIKE LOWER(?) 
+  WHERE LOWER(d.\`Disaster Type\`) LIKE LOWER(?) 
      OR LOWER(CONCAT(l.Country, ', ', l.State, ', ', l.City)) LIKE LOWER(?)
      OR LOWER(d.Description) LIKE LOWER(?)
-     OR LOWER(d.SeverityLevel) LIKE LOWER(?)
+     OR LOWER(d.\`Severity Level\`) LIKE LOWER(?)
   LIMIT 50;
 `;
 
@@ -82,12 +82,12 @@ router.get('/api/statistics', async (req, res) => {
 
     // Query for the most recent disaster
     const recentDisasterQuery = `
-      SELECT d.DisasterType, 
+      SELECT d.\`Disaster Type\` AS DisasterType, 
              CONCAT(l.City, ', ', l.State, ', ', l.Country) AS Location, 
-             d.DateOccurred
+             d.\`Date\` AS DateOccurred
       FROM Disaster d
       JOIN Location l ON d.LocationID = l.LocationID
-      ORDER BY d.DateOccurred DESC
+      ORDER BY d.\`Date\` DESC
       LIMIT 1;
     `;
     const [recentResults] = await db.promise().query(recentDisasterQuery);
@@ -172,7 +172,7 @@ router.post('/api/add', (req, res) => {
       // Function to insert the disaster using the obtained LocationID
       function insertDisaster(locationID) {
           const insertDisasterQuery = `
-              INSERT INTO Disaster (DisasterType, LocationID, DateOccurred, SeverityLevel, Description)
+              INSERT INTO Disaster (\`Disaster Type\`, LocationID, \`Date\`, \`Severity Level\`, Description)
               VALUES (?, ?, ?, ?, ?)`;
 
           const disasterValues = [DisasterType, locationID, formattedDate, SeverityLevel, Description];
@@ -196,7 +196,7 @@ router.get('/api/:id', (req, res) => {
   const disasterId = req.params.id;
   
   const query = `
-    SELECT d.DisasterID, d.DisasterType, d.DateOccurred, d.SeverityLevel, d.Description, 
+    SELECT d.DisasterID, d.\`Disaster Type\` AS DisasterType, d.\`Date\` AS DateOccurred, d.\`Severity Level\` AS SeverityLevel, d.Description, 
            l.City, l.State, l.Country
     FROM Disaster d
     JOIN Location l ON d.LocationID = l.LocationID
@@ -242,7 +242,7 @@ router.put('/api/update/:id', (req, res) => {
     // Now update Disaster Table
     const updateDisasterQuery = `
       UPDATE Disaster 
-      SET DisasterType = ?, DateOccurred = ?, SeverityLevel = ?, Description = ?
+      SET \`Disaster Type\` = ?, \`Date\` = ?, \`Severity Level\` = ?, Description = ?
       WHERE DisasterID = ?;
     `;
 

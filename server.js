@@ -28,9 +28,9 @@ app.use('/rescueteams', rescueteamsRoutes);
 
 
 
-// Default route redirects to disasters
+// Default route serves the landing page
 app.get('/', (req, res) => {
-  res.redirect('/disasters');
+  res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
 // Start the server
