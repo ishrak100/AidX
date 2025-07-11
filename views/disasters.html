@@ -4,25 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Disasters - AidX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/shared.css">
   <link rel="stylesheet" href="/css/disasters.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
   <header>
-    <div class="logo">
-      <h1>AidX</h1>
-      <span class="tagline">Disaster Management</span>
+    <div class="header-container">
+      <div class="logo">
+        <h1>AidX</h1>
+        <span class="tagline">Disaster Management</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/disasters" class="active">Disasters</a></li>
+          <li><a href="/victims">Victims</a></li>
+          <li><a href="/rescueoperations">Rescue Operations</a></li>
+          <li><a href="/volunteers">Volunteers</a></li>
+          <li><a href="/donations">Donations</a></li>
+          <li><a href="/rescueteams">Rescue Teams</a></li>
+        </ul>
+        <div class="mobile-menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
     </div>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/disasters" class="active">Disasters</a></li>
-        <li><a href="/victims">Victims</a></li>
-        <li><a href="/rescueoperations">Rescue Operations</a></li>
-        <li><a href="/volunteers">Volunteers</a></li>
-        <li><a href="/donations">Donations</a></li>
-        <li><a href="/rescueteams">Rescue Teams</a></li>
-      </ul>
-    </nav>
   </header>
 
   <main>
@@ -175,6 +187,7 @@
 </div>
 
 
+  <script src="/js/shared.js"></script>
   <script src="/js/disasters.js"></script>
 </body>
 </html>
