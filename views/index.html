@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AidX - Disaster Management System</title>
+  <link rel="stylesheet" href="/css/index.css?v=2025-07-15-no-more-poor-green">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <h1>AidX</h1>
+      </div>
+      <div class="nav-menu">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="/disasters" class="nav-link cta-button">Access Dashboard</a>
+      </div>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">Rapid Response, <span class="highlight">Better Outcomes</span></h1>
+        <p class="hero-subtitle">AidX streamlines disaster management with real-time coordination, resource tracking, and emergency response capabilities. Save lives with intelligent disaster management.</p>
+        <div class="hero-buttons">
+          <a href="/disasters" class="btn btn-primary">Get Started <i class="fas fa-arrow-right"></i></a>
+          <a href="#features" class="btn btn-secondary">Learn More</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <h3 id="totalDisasters">0</h3>
+            <p>Disasters Managed</p>
+          </div>
+          <div class="stat">
+            <h3 id="totalVictims">0</h3>
+            <p>People Helped</p>
+          </div>
+          <div class="stat">
+            <h3 id="totalVolunteers">0</h3>
+            <p>Active Volunteers</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="floating-card card-1">
+          <i class="fas fa-exclamation-triangle"></i>
+          <span>Emergency Alert</span>
+        </div>
+        <div class="floating-card card-2">
+          <i class="fas fa-hands-helping"></i>
+          <span>Rescue Operation</span>
+        </div>
+        <div class="floating-card card-3">
+          <i class="fas fa-donate"></i>
+          <span>Donations</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Comprehensive Disaster Management</h2>
+        <p>Everything you need to manage disasters effectively in one integrated platform</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+          <h3>Disaster Tracking</h3>
+          <p>Monitor and track disasters in real-time with detailed location data, severity levels, and impact assessment.</p>
+          <a href="/disasters" class="feature-link">Explore Disasters <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-user-injured"></i>
+          </div>
+          <h3>Victim Management</h3>
+          <p>Comprehensive victim database with status tracking, medical records, and emergency contact information.</p>
+          <a href="/victims" class="feature-link">Manage Victims <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-helicopter"></i>
+          </div>
+          <h3>Rescue Operations</h3>
+          <p>Coordinate rescue missions with team assignments, operation status, and resource allocation.</p>
+          <a href="/rescueoperations" class="feature-link">View Operations <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Volunteer Network</h3>
+          <p>Manage volunteer database with skills tracking, availability status, and deployment coordination.</p>
+          <a href="/volunteers" class="feature-link">Join Network <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-donate"></i>
+          </div>
+          <h3>Donation Management</h3>
+          <p>Track monetary and resource donations with transparent allocation and distribution monitoring.</p>
+          <a href="/donations" class="feature-link">Make Donation <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Rescue Teams</h3>
+          <p>Manage specialized rescue teams with expertise areas, contact information, and deployment status.</p>
+          <a href="/rescueteams" class="feature-link">View Teams <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-home"></i>
+          </div>
+          <h3>Shelters</h3>
+          <p>Coordinate emergency shelters with capacity tracking, resource management, and occupancy monitoring.</p>
+          <a href="/shelters" class="feature-link">View Shelters <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-stethoscope"></i>
+          </div>
+          <h3>Medical Reports</h3>
+          <p>Comprehensive medical record management with patient tracking, treatment history, and condition monitoring.</p>
+          <a href="/medical" class="feature-link">View Medical <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <h3>HelpLine</h3>
+          <p>Emergency helpline coordination with contact management for local, central administration, NGOs, and emergency services.</p>
+          <a href="/helpline" class="feature-link">View HelpLine <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About AidX</h2>
+          <p>AidX is a comprehensive disaster management system designed to streamline emergency response and coordinate relief efforts effectively. Our platform integrates multiple aspects of disaster management into a unified dashboard.</p>
+          <div class="about-features">
+            <div class="about-feature">
+              <i class="fas fa-check"></i>
+              <span>Real-time disaster monitoring and reporting</span>
+            </div>
+            <div class="about-feature">
+              <i class="fas fa-check"></i>
+              <span>Comprehensive victim and volunteer management</span>
+            </div>
+            <div class="about-feature">
+              <i class="fas fa-check"></i>
+              <span>Efficient resource allocation and tracking</span>
+            </div>
+            <div class="about-feature">
+              <i class="fas fa-check"></i>
+              <span>Coordinated rescue operations and team management</span>
+            </div>
+            <div class="about-feature">
+              <i class="fas fa-check"></i>
+              <span>Integrated shelter, medical, and helpline services</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-image">
+          <div class="about-card">
+            <h4>Emergency Response Time</h4>
+            <div class="progress-bar">
+              <div class="progress" style="width: 85%"></div>
+            </div>
+            <span>85% Faster</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2>Get In Touch</h2>
+        <p>Need help or want to contribute to disaster relief efforts? Contact our team.</p>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <h4>Emergency Hotline</h4>
+              <p>01810773026</p>
+              <p>01638343384</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>Email Support</h4>
+              <p>ishrakfaisal100@gmail.com</p>
+              <p>abdullahsakafy@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h4>Headquarters</h4>
+              <p>CSEDU, Science Complex Building, Dhaka-1000</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <input type="text" placeholder="Your Name" required>
+              <input type="email" placeholder="Your Email" required>
+            </div>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>AidX</h3>
+          <p>Empowering communities through intelligent disaster management and rapid emergency response.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/disasters">Disasters</a></li>
+            <li><a href="/victims">Victims</a></li>
+            <li><a href="/rescueoperations">Rescue Operations</a></li>
+            <li><a href="/volunteers">Volunteers</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/donations">Donations</a></li>
+            <li><a href="/rescueteams">Rescue Teams</a></li>
+            <li><a href="/shelters">Shelters</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Emergency</h4>
+          <p><strong>24/7 Hotline:</strong><br>+1 (555) 911-HELP</p>
+          <p><strong>Email:</strong><br>emergency@aidx.org</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 AidX. All rights reserved. | Disaster Management System</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/index.js"></script>
+</body>
+</html>

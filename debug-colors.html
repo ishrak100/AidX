@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Debug - AidX</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 20px;
+        }
+        .test-button {
+            padding: 12px 24px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .good-green {
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            color: #000000;
+        }
+        .poor-green {
+            background: #4CAF50;
+            color: white;
+        }
+        .inspect-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>AidX Color Debug Tool</h1>
+    
+    <div class="inspect-section">
+        <h2>Reference Colors:</h2>
+        <button class="test-button good-green">Good Green (#00ff88)</button>
+        <button class="test-button poor-green">Poor Green (#4CAF50)</button>
+    </div>
+    
+    <div class="inspect-section">
+        <h2>Instructions:</h2>
+        <p>1. Open this file in your browser</p>
+        <p>2. Right-click on any button showing poor green color</p>
+        <p>3. Select "Inspect Element"</p>
+        <p>4. Check the computed styles to see what CSS rule is applying the color</p>
+        <p>5. Look for any CSS file or rule that might be overriding our fixes</p>
+    </div>
+    
+    <div class="inspect-section">
+        <h2>Test Your Dashboard Pages:</h2>
+        <p><a href="/disasters" style="color: #00ff88;">Go to Disasters Page</a></p>
+        <p><a href="/victims" style="color: #00ff88;">Go to Victims Page</a></p>
+        <p><a href="/volunteers" style="color: #00ff88;">Go to Volunteers Page</a></p>
+        <p>Check which buttons are showing the poor green color and use browser dev tools to identify the source.</p>
+    </div>
+    
+    <script>
+        // Check for any computed styles
+        window.addEventListener('load', function() {
+            console.log('=== AidX Color Debug ===');
+            console.log('Good Green: #00ff88');
+            console.log('Poor Green: #4CAF50 (should be eliminated)');
+            
+            // Check if any elements have the poor green color
+            const allElements = document.querySelectorAll('*');
+            allElements.forEach(el => {
+                const styles = window.getComputedStyle(el);
+                const bgColor = styles.backgroundColor;
+                if (bgColor.includes('76, 175, 80') || bgColor.includes('#4CAF50')) {
+                    console.warn('Found element with poor green color:', el, bgColor);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

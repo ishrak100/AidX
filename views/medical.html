@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical - AidX</title>
+  <link rel="stylesheet" href="/css/medical.css?v=2025-07-15-medical-dashboard">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>AidX</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/disasters">Disaster</a></li>
+        <li><a href="/victims">Victim</a></li>
+        <li><a href="/rescueoperations">RescueOperation</a></li>
+        <li><a href="/volunteers">Volunteer</a></li>
+        <li><a href="/donations">Donation</a></li>
+        <li><a href="/rescueteams">RescueTeam</a></li>
+        <li><a href="/shelters">Shelter</a></li>
+        <li><a href="/medical" class="active">Medical</a></li>
+        <li><a href="/helpline">HelpLine</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Medical Data</h2>
+
+    <!-- Statistics Container -->
+    <div class="statistics-container">
+      <div class="stat-box">
+        <h3>Number of Medical Reports</h3>
+        <p id="medicalCount">0</p>
+      </div>
+      <div class="stat-box">
+        <h3>Number of Patients</h3>
+        <p id="patientCount">0</p>
+      </div>
+      <div id="recentMedicalBox">
+        <p class="recent-medical-title">Most Recent Medical Report</p>
+        <ul class="recent-medical-list">
+            <li><strong>Patient:</strong> <span id="patientName">N/A</span></li>
+            <li><strong>Condition:</strong> <span id="medicalCondition">N/A</span></li>
+            <li><strong>Treatment:</strong> <span id="treatment">N/A</span></li>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <div class="table-header">
+      <div></div>
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="🔍︎ Search medical records...">
+      </div>
+    </div>
+    
+    <div class="table-container">
+      <table id="medicalTable">
+        <thead>
+          <tr>
+            <th>ReportID</th>
+            <th>Patient's Name</th>
+            <th>Medical Condition</th>
+            <th>Treatment</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data rows will be inserted here dynamically -->
+        </tbody>
+      </table>
+  </div>
+
+    <div class="table-footer">
+      <button id="addMedical">Add Medical Report</button>
+    </div>
+    </div>
+  </main>
+
+ <!-- Modal for Adding a Medical Report -->
+<div id="addMedicalModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Add Medical Report</h2>
+      <span id="closeModal" class="close">&times;</span>
+    </div>
+    <div class="modal-body">
+      <form id="addMedicalForm">
+        <label for="PatientName">Patient's Name:</label>
+        <input type="text" name="PatientName" required>
+
+        <label for="MedicalCondition">Medical Condition:</label>
+        <input type="text" name="MedicalCondition" required>
+
+        <label for="Treatment">Treatment:</label>
+        <textarea name="Treatment" required></textarea>
+
+        <div class="submit-container">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Edit Medical Report Modal -->
+<div id="editMedicalModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Edit Medical Report</h2>
+      <span id="closeEditModal" class="close">&times;</span>
+    </div>
+    <div class="modal-body">
+      <form id="editMedicalForm">
+        <input type="hidden" id="editReportID"> <!-- Hidden field for Report ID -->
+
+        <label for="editPatientName">Patient's Name:</label>
+        <input type="text" id="editPatientName" name="PatientName" required>
+
+        <label for="editMedicalCondition">Medical Condition:</label>
+        <input type="text" id="editMedicalCondition" name="MedicalCondition" required>
+
+        <label for="editTreatment">Treatment:</label>
+        <textarea id="editTreatment" name="Treatment" required></textarea>
+
+        <div class="submit-container">
+          <button type="submit">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/medical.js"></script>
+</body>
+</html>

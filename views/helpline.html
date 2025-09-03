@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HelpLine - AidX</title>
+  <link rel="stylesheet" href="/css/helpline.css?v=2025-07-15-helpline-dashboard-v2">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>AidX</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/disasters">Disaster</a></li>
+        <li><a href="/victims">Victim</a></li>
+        <li><a href="/rescueoperations">RescueOperation</a></li>
+        <li><a href="/volunteers">Volunteer</a></li>
+        <li><a href="/donations">Donation</a></li>
+        <li><a href="/rescueteams">RescueTeam</a></li>
+        <li><a href="/shelters">Shelter</a></li>
+        <li><a href="/medical">Medical</a></li>
+        <li><a href="/helpline" class="active">HelpLine</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>HelpLine Data</h2>
+
+    <!-- Statistics Container -->
+    <div class="statistics-container">
+      <div class="stat-box">
+        <h3>Number of HelpLines</h3>
+        <p id="helplineCount">0</p>
+      </div>
+      <div class="stat-box">
+        <h3>Number of Locations</h3>
+        <p id="locationCount">0</p>
+      </div>
+      <div id="recentHelpLineBox">
+        <p class="recent-helpline-title">Most Recent HelpLine</p>
+        <ul class="recent-helpline-list">
+            <li><strong>Local Administration:</strong> <span id="localAdmin">N/A</span></li>
+            <li><strong>NGO:</strong> <span id="ngo">N/A</span></li>
+            <li><strong>Location:</strong> <span id="location">N/A</span></li>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <div class="table-header">
+      <div></div>
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="🔍︎ Search helplines...">
+      </div>
+    </div>
+    
+    <div class="table-container">        <table id="helplineTable">
+          <thead>
+            <tr>
+              <th>HelpLineID</th>
+              <th>Local Administration</th>
+              <th>Central Administration</th>
+              <th>NGO</th>
+              <th>Fire Service</th>
+              <th>Ambulance</th>
+              <th>Location</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+        <tbody>
+          <!-- Data rows will be inserted here dynamically -->
+        </tbody>
+      </table>
+  </div>
+
+    <div class="table-footer">
+      <button id="addHelpLine">Add HelpLine</button>
+    </div>
+    </div>
+  </main>
+
+ <!-- Modal for Adding a HelpLine -->
+<div id="addHelpLineModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Add HelpLine</h2>
+      <span id="closeModal" class="close">&times;</span>
+    </div>
+    <div class="modal-body">
+      <form id="addHelpLineForm">
+        <label for="LocalAdministration">Local Administration:</label>
+        <input type="text" name="LocalAdministration" required>
+
+        <label for="CentralAdministration">Central Administration:</label>
+        <input type="text" name="CentralAdministration" required>
+
+        <label for="NGO">NGO:</label>
+        <input type="text" name="NGO" required>
+
+        <label for="FireService">Fire Service:</label>
+        <input type="text" name="FireService" required>
+
+        <label for="Ambulance">Ambulance:</label>
+        <input type="text" name="Ambulance" required>
+
+        <label for="Division">Division:</label>
+        <input type="text" name="Division" required>
+
+        <label for="District">District:</label>
+        <input type="text" name="District" required>
+
+        <label for="Area">Area:</label>
+        <input type="text" name="Area" required>
+
+        <div class="submit-container">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Edit HelpLine Modal -->
+<div id="editHelpLineModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Edit HelpLine</h2>
+      <span id="closeEditModal" class="close">&times;</span>
+    </div>
+    <div class="modal-body">
+      <form id="editHelpLineForm">
+        <input type="hidden" id="editHelpLineID"> <!-- Hidden field for HelpLine ID -->
+
+        <label for="editLocalAdministration">Local Administration:</label>
+        <input type="text" id="editLocalAdministration" name="LocalAdministration" required>
+
+        <label for="editCentralAdministration">Central Administration:</label>
+        <input type="text" id="editCentralAdministration" name="CentralAdministration" required>
+
+        <label for="editNGO">NGO:</label>
+        <input type="text" id="editNGO" name="NGO" required>
+
+        <label for="editFireService">Fire Service:</label>
+        <input type="text" id="editFireService" name="FireService" required>
+
+        <label for="editAmbulance">Ambulance:</label>
+        <input type="text" id="editAmbulance" name="Ambulance" required>
+
+        <label for="editDivision">Division:</label>
+        <input type="text" id="editDivision" name="Division" required>
+
+        <label for="editDistrict">District:</label>
+        <input type="text" id="editDistrict" name="District" required>
+
+        <label for="editArea">Area:</label>
+        <input type="text" id="editArea" name="Area" required>
+
+        <div class="submit-container">
+          <button type="submit">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/helpline.js?v=2025-07-15-helpline-dashboard-v2"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rescue Operations - Disaster Management</title>
+  <link rel="stylesheet" href="/css/rescueoperations.css?v=2025-07-15-force-refresh-1737876000">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>AidX</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/disasters">Disaster</a></li>
+        <li><a href="/victims">Victim</a></li>
+        <li><a href="/rescueoperations" class="active">RescueOperation</a></li>
+        <li><a href="/volunteers">Volunteer</a></li>
+        <li><a href="/donations">Donation</a></li>
+        <li><a href="/rescueteams">RescueTeam</a></li>
+        <li><a href="/shelters">Shelter</a></li>
+        <li><a href="/medical">Medical</a></li>
+        <li><a href="/helpline">HelpLine</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <h2>Rescue Operations Data</h2>
+    <!-- Statistics Container -->
+  <div class="statistics-container">
+    <div class="stat-box">
+      <h3>Total Operations</h3>
+      <p id="operationCount">0</p>
+    </div>
+    <div class="stat-box">
+      <h3>Active Operations</h3>
+      <p id="activeOperationCount">0</p>
+    </div>
+    <div id="recentOperationBox" class="stat-box">
+      <p class="recent-disaster-title">Most Recent Operation</p>
+      <ul class="recent-disaster-list">
+          <li><strong>Type:</strong> <span id="operationType">N/A</span></li>
+          <li><strong>Status:</strong> <span id="operationStatus">N/A</span></li>
+          <li><strong>Location:</strong> <span id="operationLocation">N/A</span></li>
+      </ul>
+    </div>
+  </div>
+
+
+    <div class="table-header">
+      <div></div>
+      <div class="search-container">
+        <input type="text" id="searchRescueOperations" placeholder="🔍︎ Search Rescue Operations...">
+      </div>
+    </div>
+    
+    <div class="table-container">
+      <table id="rescueOperationsTable">
+        <thead>
+          <tr>
+            <th>Operation ID</th>
+            <th>Disaster Name</th>
+            <th>Team Name</th>
+            <th>Affected Area</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data rows will be inserted here dynamically -->
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footer">
+      <button id="addRescueOperation">Add Rescue Operation</button>
+    </div>
+  </main>
+
+  <!-- Modal for Adding a Rescue Operation -->
+<div id="addRescueOperationModal" class="modal">
+  <div class="modal-content">
+    <span id="closeModal" class="close">&times;</span>
+    <h2>Add Rescue Operation</h2>
+    <form id="addRescueOperationForm">
+      <label for="DisasterName">Disaster Name:</label>
+      <input type="text" name="DisasterName" required>
+
+      
+      <!-- Team Info Section -->
+      <h3>Team Info</h3>
+      <div class="team-info">
+        <div>
+          <label for="TeamName">Team Name:</label>
+          <input type="text" name="TeamName" required>
+        </div>
+      </div>
+
+      <!-- Start Date and End Date Section -->
+      <h3>Operation Dates</h3>
+      <div class="operation-dates">
+        <div>
+          <label for="StartDate">Start Date:</label>
+          <input type="date" name="StartDate" required>
+        </div>
+        <div>
+          <label for="EndDate">End Date:</label>
+          <input type="date" name="EndDate">
+        </div>
+      </div>
+
+      <label for="Status">Status:</label>
+      <select name="Status" required>
+        <option value="Ongoing">Ongoing</option>
+        <option value="Completed">Completed</option>
+      </select>
+
+      <!-- Affected Area Location -->
+      <h3>Affected Area Location:</h3>
+      <div class="affected-location">
+        <div>
+          <label for="Division">Division:</label>
+          <input type="text" name="Division" required>
+        </div>
+        <div>
+          <label for="District">District:</label>
+          <input type="text" name="District" required>
+        </div>
+        <div>
+          <label for="Area">Area:</label>
+          <input type="text" name="Area" required>
+        </div>
+      </div>
+
+      <div class="submit-container">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<!-- Edit Rescue Operation Modal -->
+<div id="editRescueOperationModal" class="modal">
+  <div class="modal-content">
+    <span id="closeEditModal" class="close">&times;</span>
+    <h2>Edit Rescue Operation</h2>
+    <form id="editRescueOperationForm">
+      <input type="hidden" id="editRescueOperationID"> <!-- Hidden field for Rescue Operation ID -->
+
+      <label for="editDisasterName">Disaster Name:</label>
+      <input type="text" id="editDisasterName" name="DisasterName" required>
+
+      <!-- Team Info Section -->
+      <h3>Team Info</h3>
+      <div class="team-info">
+        <div>
+          <label for="editTeamName">Team Name:</label>
+          <input type="text" id="editTeamName" name="TeamName" required>
+        </div>
+      </div>
+
+      <!-- Start Date and End Date Section -->
+      <h3>Operation Dates</h3>
+      <div class="operation-dates">
+        <div>
+          <label for="editStartDate">Start Date:</label>
+          <input type="date" id="editStartDate" name="StartDate" required>
+        </div>
+        <div>
+          <label for="editEndDate">End Date:</label>
+          <input type="date" id="editEndDate" name="EndDate">
+        </div>
+      </div>
+
+      <label for="editStatus">Status:</label>
+      <select id="editStatus" name="Status" required>
+        <option value="Ongoing">Ongoing</option>
+        <option value="Completed">Completed</option>
+      </select>
+
+      <!-- Affected Area Location -->
+      <h3>Affected Area Location:</h3>
+      <div class="affected-location">
+        <div>
+          <label for="editDivision">Division:</label>
+          <input type="text" id="editDivision" name="Division" required>
+        </div>
+        <div>
+          <label for="editDistrict">District:</label>
+          <input type="text" id="editDistrict" name="District" required>
+        </div>
+        <div>
+          <label for="editArea">Area:</label>
+          <input type="text" id="editArea" name="Area" required>
+        </div>
+      </div>
+
+      <div class="submit-container">
+        <button type="submit">Update</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+  <script src="/js/rescueoperations.js"></script>
+</body>
+</html>
